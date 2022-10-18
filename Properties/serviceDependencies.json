@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Uifalean_Emanuel_Lab2Context"
+    }
+  }
+}
