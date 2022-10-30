@@ -17,5 +17,7 @@ namespace Uifalean_Emanuel_Lab2.Data
         public DbSet<Uifalean_Emanuel_Lab2.Models.Book> Book { get; set; } = default!;
 
         public DbSet<Uifalean_Emanuel_Lab2.Models.Publisher> Publisher { get; set; }
+
+        public DbSet<Uifalean_Emanuel_Lab2.Models.Author> Author { get; set; }
     }
 }
