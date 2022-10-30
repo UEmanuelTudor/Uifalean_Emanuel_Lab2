@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Uifalean_Emanuel_Lab2.Data;
 
@@ -11,9 +12,10 @@ using Uifalean_Emanuel_Lab2.Data;
 namespace Uifalean_Emanuel_Lab2.Migrations
 {
     [DbContext(typeof(Uifalean_Emanuel_Lab2Context))]
-    partial class Uifalean_Emanuel_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20221030174601_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
