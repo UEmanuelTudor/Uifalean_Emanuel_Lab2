@@ -1,12 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Uifalean_Emanuel_Lab2.Data;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Uifalean_Emanuel_Lab2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Uifalean_Emanuel_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Uifalean_Emanuel_Lab2Context' not found.")));
+builder.Services.AddDbContext<LibraryIdentityContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Uifalean_Emanuel_Lab2Context") ?? throw new InvalidOperationException("Connectionstring 'Uifalean_Emanuel_Lab2Context' not found.")));
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<LibraryIdentityContext>();
 
 var app = builder.Build();
 
@@ -22,6 +27,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
