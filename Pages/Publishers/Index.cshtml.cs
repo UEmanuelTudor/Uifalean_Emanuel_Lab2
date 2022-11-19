@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace Uifalean_Emanuel_Lab2.Pages.Publishers
         {
             PublisherData = new PublisherIndexData();
             PublisherData.Publishers = await _context.Publisher
-            .Include(i => i.Books)
+                .Include(i => i.Books)
                 .ThenInclude(c => c.Author)
             .OrderBy(i => i.PublisherName)
             .ToListAsync();
